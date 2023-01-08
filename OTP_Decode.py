@@ -2,7 +2,7 @@ import random
 import os
 import sys
 import itertools
-from itertools import izip_longest
+from itertools import zip_longest
 # Import our encryption methods
 from Encryptions import*
 # Define the base numbers and letter
@@ -83,7 +83,7 @@ for anItem in CodedMessage:
 
 # Parse this into integer pairs using itertools
 
-MessageNString = [''.join(e) for e in list(izip_longest(*[iter(CodedMessageString)] * 2,fillvalue=''))]
+MessageNString = [''.join(e) for e in list(zip_longest(*[iter(CodedMessageString)] * 2,fillvalue=''))]
 
 ######################### Decode The Message ##########################
 DecodedMessage = []
@@ -93,12 +93,12 @@ while i < len(MessageNString):
 	# Call the decode method
 	Letter = Decode_Ei(MessageNString[i], KeyNumbers[i], LN)
 	if Letter == 999:
-		print MessageNString[i], KeyNumbers[i]
+		print(MessageNString[i], KeyNumbers[i])
 		sys.exit()
 	DecodedMessage.append(Letter)
 	i = i+1
 
-print DecodedMessage
+print(DecodedMessage)
 
 
 
